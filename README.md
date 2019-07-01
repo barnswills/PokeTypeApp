@@ -1,2 +1,0 @@
-# PokeTypeApp
-Created with CodeSandbox
