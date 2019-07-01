@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <h1>Hello</h1>
+    <sui-button>TEST</sui-button>
   </div>
 </template>
 
@@ -12,6 +14,7 @@ export default {
   },
   mounted() {
     console.log("MOUNTED!");
+    this.$store.commit("test");
   }
 };
 </script>

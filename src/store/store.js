@@ -5,11 +5,11 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    test: "test"
+    test: "hello"
   },
   mutations: {
-    test() {
-      console.log(this.test);
+    test(state) {
+      console.log(state.test);
     }
   }
 });
