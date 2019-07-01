@@ -25,6 +25,26 @@ export const getTypes = async () => {
   return types;
 };
 
-export const getPokemonOfType = type => {
-  console.log("Lets get em all");
+export const getPokemonOfType = async type => {
+  console.log("Lets get em all of type " + type);
+
+  let pokemonNames = [];
+  let pokemonObjects = null;
+
+  await axios
+    .get("https://pokeapi.co/api/v2/type/" + type)
+    .then(async response => {
+      console.log(response);
+      pokemonObjects = await response.data["pokemon"];
+    });
+
+  pokemonObjects.forEach(async pokemonObj => {
+    const pokemonData = pokemonObj["pokemon"];
+    const pokemonName = await pokemonData["name"];
+    pokemonNames.push(pokemonName);
+  });
+
+  console.log(pokemonNames);
+
+  return pokemonNames;
 };

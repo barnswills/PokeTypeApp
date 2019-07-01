@@ -1,31 +1,46 @@
 <template>
   <div>
-    <sui-dropdown placeholder="Type..." selection :options="getOptions()" v-model="current"></sui-dropdown>
+    <sui-dropdown placeholder="Type..." fluid selection :options="options" 
+    v-model="current"></sui-dropdown>
   </div>
 </template>
 
 <script>
+import { getPokemonOfType } from "../rest/contactPokeApi";
+
 export default {
   name: "TypeSelector",
+
   data() {
     return {
       current: null,
-      options: [
-        {
-          text: "Male",
-          value: 1
-        },
-        {
-          text: "Female",
-          value: 2
-        }
-      ]
+      options: this.getOptions(),
+      pokemon: []
     };
   },
   methods: {
     getOptions: function() {
       console.log(this.$store.getters.types);
       return this.$store.getters.types;
+    },
+    invokeChange: function() {
+      console.log("value changed");
+    }
+  },
+
+  watch: {
+    current: function() {
+      //console.log(this.current);
+      //console.log(this.options[this.current - 1]);
+
+      const value = this.options[this.current - 1]["text"];
+
+      console.log(value);
+
+      // get pokemon of this type
+      getPokemonOfType(value)
+
+      // commit all pokemon to 
     }
   }
 };
