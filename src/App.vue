@@ -2,19 +2,29 @@
   <div id="app">
     <h1>Hello</h1>
     <sui-button>TEST</sui-button>
+    <Interface></Interface>
   </div>
 </template>
 
 <script>
+import Interface from "./components/Interface";
+import { getTypes } from "./rest/contactPokeApi";
 
 export default {
   name: "App",
   components: {
-    
+    Interface
   },
   mounted() {
     console.log("MOUNTED!");
-    this.$store.commit("test");
+    this.getTypesFromApi();
+  },
+  methods: {
+    getTypesFromApi: async function() {
+      const apiTypes = await getTypes();
+      //console.log(apiTypes);
+      this.$store.commit("setTypes", apiTypes);
+    }
   }
 };
 </script>
