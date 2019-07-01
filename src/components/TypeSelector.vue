@@ -1,7 +1,6 @@
 <template>
   <div>
-    <sui-dropdown placeholder="Type..." fluid selection :options="options" 
-    v-model="current"></sui-dropdown>
+    <sui-dropdown placeholder="Type..." fluid selection :options="options" v-model="current"></sui-dropdown>
   </div>
 </template>
 
@@ -37,10 +36,13 @@ export default {
 
       console.log(value);
 
-      // get pokemon of this type
-      getPokemonOfType(value)
+      this.$store.commit("changeType", value);
 
-      // commit all pokemon to 
+      // get pokemon of this type
+      const pokemonOfType = getPokemonOfType(value);
+
+      // commit all pokemon to
+      this.$store.commit();
     }
   }
 };

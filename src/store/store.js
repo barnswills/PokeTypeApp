@@ -7,7 +7,8 @@ export const store = new Vuex.Store({
   state: {
     test: "hello",
     types: [],
-    currentType: ""
+    currentType: "",
+    selectedPokemon: []
   },
   mutations: {
     test(state) {
@@ -21,6 +22,7 @@ export const store = new Vuex.Store({
     }
   },
   getters: {
-    types: state => state.types
+    types: state => state.types,
+    currentType: state => state.currentType
   }
 });
