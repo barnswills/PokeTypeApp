@@ -19,10 +19,14 @@ export const store = new Vuex.Store({
     },
     changeType(state, newType) {
       state.currentType = newType;
+    },
+    setSelectedPokemon(state, selectedPokemon) {
+      state.selectedPokemon = selectedPokemon;
     }
   },
   getters: {
     types: state => state.types,
-    currentType: state => state.currentType
+    currentType: state => state.currentType,
+    selectedPokemon: state => state.selectedPokemon
   }
 });

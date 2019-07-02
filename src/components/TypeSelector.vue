@@ -30,14 +30,10 @@ export default {
 
   watch: {
     current: function(val) {
-      //console.log(this.current);
-      //console.log(this.options[this.current - 1]);
+
       const vInt = val - 1;
 
-      console.log(vInt);
-
       const types = this.$store.getters.types;
-
       const value = types[vInt]["text"];
 
       console.log(value);
