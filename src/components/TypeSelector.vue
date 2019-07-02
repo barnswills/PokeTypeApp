@@ -1,6 +1,7 @@
 <template>
   <div>
-    <sui-dropdown placeholder="Type..." fluid selection :options="options" v-model="current"></sui-dropdown>
+    <sui-dropdown placeholder="Type..." fluid selection 
+    :options="this.$store.getters.types" v-model="current"></sui-dropdown>
   </div>
 </template>
 
@@ -13,7 +14,7 @@ export default {
   data() {
     return {
       current: null,
-      options: this.getOptions(),
+      options: [],
       pokemon: []
     };
   },
@@ -28,11 +29,16 @@ export default {
   },
 
   watch: {
-    current: function() {
+    current: function(val) {
       //console.log(this.current);
       //console.log(this.options[this.current - 1]);
+      const vInt = val - 1;
 
-      const value = this.options[this.current - 1]["text"];
+      console.log(vInt);
+
+      const types = this.$store.getters.types;
+
+      const value = types[vInt]["text"];
 
       console.log(value);
 
@@ -42,7 +48,7 @@ export default {
       const pokemonOfType = getPokemonOfType(value);
 
       // commit all pokemon to
-      this.$store.commit();
+      this.$store.commit("setSelectedPokemon", pokemonOfType);
     }
   }
 };

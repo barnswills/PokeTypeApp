@@ -15,14 +15,18 @@ export default {
   components: {
     Interface
   },
+  // mounted() {
+  //   console.log("MOUNTED!");
+  // },
   mounted() {
-    console.log("MOUNTED!");
+    console.log("NOT CREATED");
+
     this.getTypesFromApi();
   },
   methods: {
     getTypesFromApi: async function() {
       const apiTypes = await getTypes();
-      //console.log(apiTypes);
+      console.log(apiTypes);
       this.$store.commit("setTypes", apiTypes);
     }
   }

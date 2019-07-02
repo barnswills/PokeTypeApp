@@ -20,9 +20,9 @@ export const getTypes = async () => {
       console.log(err);
     });
 
-  //console.log(types);
+  const completeTypes = await types;
 
-  return types;
+  return completeTypes;
 };
 
 export const getPokemonOfType = async type => {
