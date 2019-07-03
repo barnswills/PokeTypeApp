@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <h1>Hello</h1>
-    <sui-button>TEST</sui-button>
     <Interface></Interface>
   </div>
 </template>
@@ -41,5 +39,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  padding: 15px;
 }
 </style>

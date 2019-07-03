@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>Types
+  <h1>Select a Type...
     </h1>
 
     <TypeSelector/>
