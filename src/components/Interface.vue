@@ -1,9 +1,7 @@
 <template>
 <div>
-  <h1>Select a Type...
-    </h1>
-
-    <TypeSelector/>
+  <h1>Select a Type...</h1>
+  <TypeSelector/>
 </div>
 </template>
 
